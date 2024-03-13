@@ -13,10 +13,10 @@
   </select>
 
   <label for="long">Longititude</label>
-  <input id="long" type="number">
+  <input id="long" type="hidden">
   <br>
   <label for="lat">Latitude</label>
-  <input id="lat" type="number">
+  <input id="lat" type="hidden">
   <br>
   <button onclick="submitButton()" id="sbmtBtn">Submit</button>
 
@@ -67,24 +67,24 @@
   })
 
 
-  // function updateLocation() {
-  //     navigator.geolocation.getCurrentPosition(function(position) {
-  //       var latitude = position.coords.latitude;
-  //       var longitude = position.coords.longitude;
+  function updateLocation() {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
 
-  //       // Update latitude and longitude on the page
-  //       document.getElementById('lat').value = latitude;
-  //       document.getElementById('long').value = longitude;
-  //     });
+        // Update latitude and longitude on the page
+        document.getElementById('lat').value = latitude;
+        document.getElementById('long').value = longitude;
+      });
 
-  //     document.querySelector('#sbmtBtn').click()
-  //   }
+      document.querySelector('#sbmtBtn').click()
+    }
 
-  //   // Update location initially
-  //   updateLocation();
+    // Update location initially
+    updateLocation();
 
-  //   // Update location every minute
-  //   setInterval(updateLocation, 3000);
+    // Update location every minute
+    setInterval(updateLocation, 3000);
 </script>
 
 
